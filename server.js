@@ -1,5 +1,6 @@
-var express = require('express'),
-app = express(),
+import express from 'express'
+
+const app = express(),
 port = process.env.PORT || 3000;
 
 app.listen(port);
