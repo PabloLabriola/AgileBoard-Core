@@ -21,6 +21,8 @@ No se podrán mostrar imágenes o archivos de ningún tipo en la descripción de
 [Twitter](https://developer.twitter.com/en) - Funcionalidad de compartir en RRSS
 [Linkedin](https://developer.linkedin.com/docs/rest-api) - Funcionalidad de compartir en RRSS
 [MySql](https://www.mysql.com/) - Base de datos
+[Express](https://expressjs.com/es/guide/database-integration.html)  - DB Integration
+[freemysql](https://www.freemysqlhosting.net/) - Cloud DB
 
 ## User stories
 
@@ -45,10 +47,11 @@ No se podrán mostrar imágenes o archivos de ningún tipo en la descripción de
 
 ## Asignación de tareas
 
-|       Tareas           |                Responsables                 |                        Fuente                               |
-|------------------------|---------------------------------------------|-------------------------------------------------------------|
-| Compartir en Linkedin  | [Dario](https://github.com/DarioDiGulio)    | [Linkedin](https://developer.linkedin.com/docs/rest-api)    |
-| Compartir en Twitter   | [Dario](https://github.com/DarioDiGulio)    | [Twitter](https://developer.twitter.com/en)                 |
-| Envío de Correos       | [Dario](https://github.com/DarioDiGulio)    | [Nodemailer](https://nodemailer.com/about/)                 |
-| Integración con BD     | [Pablo L](https://github.com/PabloLabriola) |                                                             |
-|                        |                                             |                                                             |
+|       Tareas              |                Responsables                 |                        Fuente											|
+|---------------------------|---------------------------------------------|-------------------------------------------------------------------------|
+| Compartir en Linkedin     | [Dario](https://github.com/DarioDiGulio)    | [Linkedin](https://developer.linkedin.com/docs/rest-api)				|
+| Compartir en Twitter      | [Dario](https://github.com/DarioDiGulio)    | [Twitter](https://developer.twitter.com/en)								|
+| Envío de Correos          | [Dario](https://github.com/DarioDiGulio)    | [Nodemailer](https://nodemailer.com/about/)								|
+| Creacion de Schema de BD  | [Pablo L](https://github.com/PabloLabriola) | [MySql](https://www.mysql.com/)											|
+| Integración de BD         | [Pablo L](https://github.com/PabloLabriola) | [Express](https://expressjs.com/es/guide/database-integration.html)		|
+| Cloud DB        			| [Pablo L](https://github.com/PabloLabriola) | [freemysql](https://www.freemysqlhosting.net/)							|
