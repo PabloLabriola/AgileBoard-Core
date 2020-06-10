@@ -21,6 +21,8 @@ No se podrán mostrar imágenes o archivos de ningún tipo en la descripción de
 [Twitter](https://developer.twitter.com/en) - Funcionalidad de compartir en RRSS
 [Linkedin](https://developer.linkedin.com/docs/rest-api) - Funcionalidad de compartir en RRSS
 [MySql](https://www.mysql.com/) - Base de datos
+[Express](https://expressjs.com/es/guide/database-integration.html)  - DB Integration
+[freemysql](https://www.freemysqlhosting.net/) - Cloud DB
 
 ## User stories
 
