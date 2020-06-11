@@ -55,4 +55,4 @@ No se podrán mostrar imágenes o archivos de ningún tipo en la descripción de
 | Creacion de Schema de BD  | [Pablo L](https://github.com/PabloLabriola) | [MySql](https://www.mysql.com/)											|
 | Integración de BD         | [Pablo L](https://github.com/PabloLabriola) | [Express](https://expressjs.com/es/guide/database-integration.html)		|
 | Cloud DB        			| [Pablo L](https://github.com/PabloLabriola) | [freemysql](https://www.freemysqlhosting.net/)							|
-| API REST FULL    			| [Pablo R](https://github.com/PabloRondeau)  | [Node.JS](https://nodejs.org/es/)							            |
+| API RESTful   			| [Pablo R](https://github.com/PabloRondeau)  | [Node.JS](https://nodejs.org/es/)							            |
