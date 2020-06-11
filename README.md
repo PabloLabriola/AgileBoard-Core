@@ -42,7 +42,7 @@ No se podrán mostrar imágenes o archivos de ningún tipo en la descripción de
 ## Developers
 
 [Pablo Labriola](https://github.com/PabloLabriola)
-[Pablo Rondeau](https://github.com/pablorondeau)
+[Pablo Rondeau](https://github.com/Pablorondeau)
 [Dario Di Gulio](https://github.com/DarioDiGulio)
 
 ## Asignación de tareas
@@ -55,3 +55,4 @@ No se podrán mostrar imágenes o archivos de ningún tipo en la descripción de
 | Creacion de Schema de BD  | [Pablo L](https://github.com/PabloLabriola) | [MySql](https://www.mysql.com/)											|
 | Integración de BD         | [Pablo L](https://github.com/PabloLabriola) | [Express](https://expressjs.com/es/guide/database-integration.html)		|
 | Cloud DB        			| [Pablo L](https://github.com/PabloLabriola) | [freemysql](https://www.freemysqlhosting.net/)							|
+| API REST FULL    			| [Pablo R](https://github.com/PabloRondeau) | Node.JS							|
