@@ -3,8 +3,6 @@ import express from 'express'
 const app = express(),
 port = process.env.PORT || 3000;
 
-const app = express()
-
 app.use(express.json())
 
 let estudiantes = []
@@ -31,5 +29,5 @@ app.delete('/api//:id', (req,res) => {
 
 app.listen(port, error => {
     if(error) throw new Error(`Error en servidor ${error}`)
-    console.log(`Servidor express escuchando en el puerto ${PORT}`)
+    console.log(`Servidor express escuchando en el puerto ${port}`)
 })
