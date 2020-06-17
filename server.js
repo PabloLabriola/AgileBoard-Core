@@ -6,7 +6,6 @@ const app = express(),
 
 app.use(express.json())
 
-
 app.listen(port);
 
 console.log('todo list RESTful API server started on: ' + port);
