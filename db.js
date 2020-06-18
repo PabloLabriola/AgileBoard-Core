@@ -1,4 +1,4 @@
-'user strict';
+/* 'user strict';
 
 import mysql from 'mysql'
 
@@ -15,4 +15,22 @@ connection.connect(function(err) {
     console.log('DB Conected!')
 });
 
-export default connection
+export default connection */
+
+// http://knexjs.org/
+
+import knexLib from 'knex'
+
+const knex = knexLib ({
+    client: 'mysql',
+    connection: {
+        host: '127.0.0.1',
+        user: 'root',
+        password : '1234',
+        database : 'agileboard_db'
+    }
+});
+
+
+export default knex
+

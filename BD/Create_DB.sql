@@ -1,1 +1,0 @@
-SELECT * FROM agileboard_db.tasks;
