@@ -31,6 +31,7 @@ const knex = knexLib ({
     }
 });
 
+console.log('db connected')
 
 export default knex
 
