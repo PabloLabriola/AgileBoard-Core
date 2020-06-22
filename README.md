@@ -14,15 +14,19 @@ No se podrán mostrar imágenes o archivos de ningún tipo en la descripción de
 
 ## Tecnologías
 
-- [Vue.js](https://vuejs.org/) - Front End
-- [Quasar](https://quasar.dev/) - Estilos
-- [Node.js](https://nodejs.org/en/) - Back End
-- [Nodemailer](https://nodemailer.com/about/) - Funcionalidad de envío de mails
-- [Twitter](https://developer.twitter.com/en) - Funcionalidad de compartir en RRSS
-- [Linkedin](https://developer.linkedin.com/docs/rest-api) - Funcionalidad de compartir en RRSS
-- [MySql](https://www.mysql.com/) - Base de datos
-- [Express](https://expressjs.com/es/guide/database-integration.html)  - DB Integration
-- [freemysql](https://www.freemysqlhosting.net/) - Cloud DB
+[Node.js](https://nodejs.org/en/) - Back End
+
+[Nodemailer](https://nodemailer.com/about/) - Funcionalidad de envío de mails
+
+[Twitter](https://developer.twitter.com/en) - Funcionalidad de compartir en RRSS
+
+[Linkedin](https://developer.linkedin.com/docs/rest-api) - Funcionalidad de compartir en RRSS
+
+[MySql](https://www.mysql.com/) - Base de datos
+
+[Express](https://expressjs.com/es/guide/database-integration.html)  - DB Integration
+
+[freemysql](https://www.freemysqlhosting.net/) - Cloud DB
 
 ## User stories
 
@@ -55,4 +59,7 @@ No se podrán mostrar imágenes o archivos de ningún tipo en la descripción de
 | Creacion de Schema de BD  | [Pablo L](https://github.com/PabloLabriola) | [MySql](https://www.mysql.com/)											|
 | Integración de BD         | [Pablo L](https://github.com/PabloLabriola) | [Express](https://expressjs.com/es/guide/database-integration.html)		|
 | Cloud DB        			| [Pablo L](https://github.com/PabloLabriola) | [freemysql](https://www.freemysqlhosting.net/)							|
+<<<<<<< HEAD
 | API RESTful   			| [Pablo R](https://github.com/PabloRondeau)  | [Node.JS](https://nodejs.org/es/)							            |
+=======
+>>>>>>> develop
