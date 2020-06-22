@@ -1,4 +1,4 @@
-import Project from '../models/projectModel'
+import Project from '../models/projectModel.js'
 const projectModel = new Project()
 
 /**
