@@ -8,7 +8,17 @@ const projectModel = new Project();
  * @returns {En caso de éxito devuelve un objeto proyecto con su nombre, descripción y listas}
  */
 async function getProjectById(id) {
-  return "Hola mundo";
+    
+    try {      
+
+        var result = new Project(id, admin, name)        
+
+    } catch (error) {
+        throw new CustomError(500, 'error al obtener el proyecto', error)
+    }
+
+    return result
+
 }
 
 /**
