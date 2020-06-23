@@ -1,17 +1,26 @@
-// import knexLib from "knex";
-import mysql from 'mysql'
+import knexLib from 'knex'
 
-//local mysql db connection
-var connection = mysql.createConnection({
-    host: "sql10.freemysqlhosting.net",
-    user: "sql10350341",
-    password: "CarjgbacwW",
-    database: "sql10350341",
-});
+function createDB() {
+    const knex = knexLib({
+        client: 'mysql',
+        connection: {
+            host: 'sql10.freemysqlhosting.net',
+            user: 'sql10350341',
+            password: 'CarjgbacwW',
+            database: 'sql10350341'
+        }
+    });
 
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log('DB Conected!')
-});
+    let query = knex.select().from('tasks').then(rows => {
+        console.log('connected');
+    }).catch((err) => {
+        console.log(err);
 
-export default connection
+    });
+
+    return knex
+}
+
+export default {
+    createDB
+}
