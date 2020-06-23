@@ -1,4 +1,4 @@
-import knex from "../../DB/db_connection.js";
+import connection  from "../../DB/db_connection.js";
 
 class Project {
   /* ver métodos en el controller */
@@ -10,7 +10,7 @@ class Project {
 
   async getList(idProject) {
     try {
-      await knex
+      await connection
         .select()
         .from("list")
         .where("id_project", idProject)

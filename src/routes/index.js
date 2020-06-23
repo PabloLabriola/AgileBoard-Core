@@ -21,8 +21,8 @@ router.delete('/deleteTraskFromList', list.deleteTraskFromList)
 /**
 * @description Rutas de las tareas
 */
-router.post('/editTaskFromList', task.editTaskFromList)
-router.post('/createTaskInList', task.createTaskInList)
+// router.post('/editTaskFromList', task.editTaskFromList)
+// router.post('/createTaskInList', task.createTaskInList)
 
 /**
 * @description Rutas de las estadísticas
