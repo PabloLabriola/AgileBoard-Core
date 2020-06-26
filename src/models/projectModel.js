@@ -1,21 +1,22 @@
-class Project {
+// const factoryProject = function () {
 
-  constructor(id, admin, name) {
+  class Project {
 
-    let _id = id
-    let _admin = admin
-    let _name = name
+    constructor(id, admin, name) {
 
-    this.getId = () => _id
-    this.setId = id => _id = id
+      let _id = id
+      let _admin = admin
+      let _name = name
 
-    this.getAdmin = () => _admin
-    this.setAdmin = admin => _admin = admin
+      this.getId = () => _id
+      this.setId = id => _id = id
 
-    this.getName = () => _name
-    this.setName = name => _name = name
+      this.getAdmin = () => _admin
+      this.setAdmin = admin => _admin = admin
+
+      this.getName = () => _name
+      this.setName = name => _name = name
+    }
   }
-
-}
-
-export default Project;
+  export default Project
+// }

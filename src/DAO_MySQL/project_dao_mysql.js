@@ -1,16 +1,37 @@
-import knex  from "../../DB/db_connection.js";
+import knex  from '../../DB/db_connection.js'
+import factoryProject from '../models/projectModel.js'
+
+
+const Project = factoryProject()
+
+knex.select
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /* ver métodos en el controller */
+
   // getProjectById
   // createProject
   // getProjectStats
   // getProjectStatsById
   // getProjectActionHistory
-
-
-    /* ver métodos en el controller */
-
-
 
   //   function pt () {
   //     knex.select().from('tasks').then(rows => {
@@ -42,3 +63,7 @@ import knex  from "../../DB/db_connection.js";
     //   }
 
     // }
+
+  
+
+
