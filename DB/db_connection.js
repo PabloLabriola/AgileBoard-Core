@@ -1,5 +1,5 @@
 import knexLib from 'knex'
-import config from '../src/config'
+import config from '../config.js'
 
 function createDB() {
     const knex = knexLib({

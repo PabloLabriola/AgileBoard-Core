@@ -1,6 +1,6 @@
 import _ from "underscore";
-import router from "./routes/index.js";
-import db from '../DB/db_connection.js';
+import router from "./src/routes/index.js";
+import db from './DB/db_connection.js';
 import express from 'express';
 
 const app = express()
