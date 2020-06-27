@@ -1,8 +1,12 @@
 import Project from "../models/projectModel.js";
 import CustomError from '../errors/customError.js'
-import projectDAO from '../DAO_MySQL/project_dao_mysql.js'
+import dao from '../data/daoFactory.js'
 
-const project = projectDAO()
+/**
+ * @description Obtener una entidad a traves de un string con su nombre
+ * @param {'project','list,'task'}
+ */
+const projectDAO = dao('project')
 
 /**
  * @description Obtener un proyecto a través de su id
@@ -13,6 +17,11 @@ const project = projectDAO()
 async function getProjectById(req, res) {
   console.log('req: ' + req.body.id)
   res.json(req.body.id)
+  const projecto = project.getProjectById(req.body.id)
+  console.log(projecto)
+
+
+  
   // // const result = await projectModel.getProjectById(req.body.id) 
   // console.log(result)
   // res.json(result)

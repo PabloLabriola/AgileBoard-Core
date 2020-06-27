@@ -13,7 +13,7 @@ function createDB() {
     });
 
     let query = knex.select().from('tasks').then(rows => {
-        console.log('connected');
+        console.log('DB connected');
     }).catch((err) => {
         console.log(err);
 
