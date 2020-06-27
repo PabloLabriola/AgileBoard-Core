@@ -1,13 +1,14 @@
 import knexLib from 'knex'
+import config from '../src/config'
 
 function createDB() {
     const knex = knexLib({
         client: 'mysql',
         connection: {
-            host: 'sql10.freemysqlhosting.net',
-            user: 'sql10350341',
-            password: 'CarjgbacwW',
-            database: 'sql10350341'
+            host: config.DB_CONNECTION.host,
+            user: config.DB_CONNECTION.user,
+            password: config.DB_CONNECTION.password,
+            database: config.DB_CONNECTION.database
         }
     });
 
