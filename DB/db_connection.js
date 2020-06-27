@@ -1,37 +1,27 @@
-/* 'user strict';
-
-import mysql from 'mysql'
-
-//local mysql db connection
-var connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'root',
-    password : '1234',
-    database : 'agileboard_db'
-});
-
-connection.connect(function(err) {
-    if (err) throw err;
-    console.log('DB Conected!')
-});
-
-export default connection */
-
-// http://knexjs.org/
-
 import knexLib from 'knex'
+import config from '../config.js'
 
-const knex = knexLib ({
-    client: 'mysql',
-    connection: {
-        host: '127.0.0.1',
-        user: 'root',
-        password : '1234',
-        database : 'agileboard_db'
-    }
-});
+function createDB() {
+    const knex = knexLib({
+        client: 'mysql',
+        connection: {
+            host: config.DB_CONNECTION.host,
+            user: config.DB_CONNECTION.user,
+            password: config.DB_CONNECTION.password,
+            database: config.DB_CONNECTION.database
+        }
+    });
 
-console.log('db connected')
+    let query = knex.select().from('tasks').then(rows => {
+        console.log('connected');
+    }).catch((err) => {
+        console.log(err);
 
-export default knex
+    });
 
+    return knex
+}
+
+export default {
+    createDB
+}
