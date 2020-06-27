@@ -1,4 +1,4 @@
-// const factoryProject = function () {
+const factoryProject = function () {
 
   class Project {
 
@@ -18,5 +18,7 @@
       this.setName = name => _name = name
     }
   }
-  export default Project
-// }
+  return Project
+}
+
+export default factoryProject

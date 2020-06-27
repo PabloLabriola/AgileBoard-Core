@@ -1,7 +1,8 @@
 import Project from "../models/projectModel.js";
 import CustomError from '../errors/customError.js'
-const projectModel = new Project();
-// import Projectoo from "../DAO_MySQL/project_dao_mysql.js";
+import projectDAO from '../DAO_MySQL/project_dao_mysql.js'
+
+const project = projectDAO()
 
 /**
  * @description Obtener un proyecto a través de su id
@@ -10,9 +11,8 @@ const projectModel = new Project();
  * @returns {En caso de éxito devuelve un objeto proyecto con su nombre, descripción y listas}
  */
 async function getProjectById(req, res) {
-  // console.log('req: ' + req.body.id)
-  // await Projectoo.pt()
-  // res.json(req.body.id)
+  console.log('req: ' + req.body.id)
+  res.json(req.body.id)
   // // const result = await projectModel.getProjectById(req.body.id) 
   // console.log(result)
   // res.json(result)

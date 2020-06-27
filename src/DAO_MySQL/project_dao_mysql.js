@@ -1,10 +1,12 @@
 import knex  from '../../DB/db_connection.js'
-import factoryProject from '../models/projectModel.js'
+// import factoryProject from '../models/projectModel.js'
 
+export default function () {
+// const Project = factoryProject()
+// const p = new Project()
 
-const Project = factoryProject()
+}
 
-knex.select
 
 
 
