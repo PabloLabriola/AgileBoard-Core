@@ -2,9 +2,10 @@ import _ from "underscore";
 import router from "./src/routes/index.js";
 import db from './DB/db_connection.js';
 import express from 'express';
+import config from './config.js'
 
 const app = express()
-const port = process.env.PORT || 3000;
+const port = config.SERVER_PORT || 3000;
 
 app.use(express.json())
 app.use("/", router);
