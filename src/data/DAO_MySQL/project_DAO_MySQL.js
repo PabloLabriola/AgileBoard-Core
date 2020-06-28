@@ -1,53 +1,63 @@
-// import knex  from '../../../DB/db_connection.js'
+import knex from '../../db/db_connection.js'
+// import Project from "../models/projectModel.js";
+
+const db = knex.createDB()
+
 // import factoryProject from '../models/projectModel.js'
 
-  /* ver métodos en el controller */
+/* ver métodos en el controller */
 
-  // getProjectById
-  // createProject
-  // getProjectStats
-  // getProjectStatsById
-  // getProjectActionHistory
-
-  //   function pt () {
-  //     knex.select().from('tasks').then(rows => {
-  //      console.log('prooooojext');
-  //    }).catch((err) => {
-  //      console.log(err);
-     
-  //    });
-  //  }
-   
-  //  export default pt
+// getProjectById
+// createProject
+// getProjectStats
+// getProjectStatsById
+// getProjectActionHistory
 
 
-   function getProjectById (id){
+async function getProjectById(id) {
+  try {
+    await db
+      .select()
+      .from('projects')
+      .where('id_project', id)
+      .then(row => {
+        if (row.length > 0) {
 
-    return id
-   }
+          let result = row[0]
 
-      // try {
-      //   await knex
-      //     .select()
-      //     .from('projects')
-      //     .where('id_project', id)
-      //     .then((rows) => {
-      //         if (rows.length > 0) {
-      //             return JSON.stringify(rows);
-      //         } else {
-      //             return "Empty project"
-      //         }
-      //     });
-      // } catch (error) {
-      //   return error;
-      // }
-    
-      export default {
-        getProjectById
-      }
+          let project = {
+            id_project: result.id_project,
+            id_admin: result.id_admin,
+            project_name: result.project_name
+          }
 
-  
+          console.log('\n' + '------------------------------DB response:-------------------------------' + '\n')
+          console.log(project)
+          console.log('\n' + '-------------------------------------------------------------------------' + '\n')
+          console.log('-------------------------------------------------------------------------')
 
-  
+          return project
+
+        } else {
+          return "Empty project"
+        }
+      }).catch((err) => {
+        console.log(err);
+
+      });
+  } catch (error) {
+    return 'DB err: ' + error;
+  }
+}
+
+
+
+export default {
+  getProjectById
+}
+
+
+
+
 
 

@@ -1,4 +1,3 @@
-const factoryProject = function () {
 
   class Project {
 
@@ -7,6 +6,7 @@ const factoryProject = function () {
       let _id = id
       let _admin = admin
       let _name = name
+      
 
       this.getId = () => _id
       this.setId = id => _id = id
@@ -18,7 +18,5 @@ const factoryProject = function () {
       this.setName = name => _name = name
     }
   }
-  return Project
-}
 
-export default factoryProject
+  export default Project

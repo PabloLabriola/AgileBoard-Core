@@ -1,5 +1,5 @@
 import knexLib from 'knex'
-import config from '../config.js'
+import config from '../../config.js'
 
 function createDB() {
     const knex = knexLib({
@@ -12,15 +12,16 @@ function createDB() {
         }
     });
 
-    let query = knex.select().from('tasks').then(rows => {
-        console.log('DB connected');
-    }).catch((err) => {
-        console.log(err);
-
-    });
-
     return knex
 }
+
+createDB().select().from('tasks').then(rows => {
+    console.log('DB connected');
+}).catch((err) => {
+    console.log(err);
+
+});
+
 
 export default {
     createDB

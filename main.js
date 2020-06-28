@@ -1,6 +1,6 @@
 import _ from "underscore";
 import router from "./src/routes/index.js";
-import db from './DB/db_connection.js';
+import db from './src/db/db_connection.js';
 import express from 'express';
 import config from './config.js'
 
