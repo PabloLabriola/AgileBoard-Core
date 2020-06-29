@@ -1,5 +1,4 @@
 import knex from '../../db/db_connection.js'
-// import Project from "../models/projectModel.js";
 
 const db = knex.createDB()
 
@@ -11,53 +10,54 @@ const db = knex.createDB()
 // createProject
 // getProjectStats
 // getProjectStatsById
-// getProjectActionHistory
+// getProjec8tActionHistory
 
 
 async function getProjectById(id) {
   try {
-    await db
+    let result = await db
       .select()
       .from('projects')
       .where('id_project', id)
       .then(row => {
         if (row.length > 0) {
-
-          let result = row[0]
+          let data = row[0]
 
           let project = {
-            id_project: result.id_project,
-            id_admin: result.id_admin,
-            project_name: result.project_name
+            id_project: data.id_project,
+            id_admin: data.id_admin,
+            project_name: data.project_name
           }
-
-          console.log('\n' + '------------------------------DB response:-------------------------------' + '\n')
-          console.log(project)
-          console.log('\n' + '-------------------------------------------------------------------------' + '\n')
-          console.log('-------------------------------------------------------------------------')
-
+          // console log
+          log(project)
+          
           return project
-
         } else {
           return "Empty project"
         }
       }).catch((err) => {
         console.log(err);
+        return err
+      })
+    
+      return result
 
-      });
   } catch (error) {
     return 'DB err: ' + error;
   }
 }
 
-
-
-export default {
-  getProjectById
+// console log
+function log(data) {
+  console.log('\n' + '------------------------------DB response:-------------------------------' + '\n')
+  console.log(data)
+  console.log('\n' + '-------------------------------------------------------------------------' + '\n')
+  console.log('-------------------------------------------------------------------------')
 }
 
-
-
+export default {
+  getProjectById,
+}
 
 
 

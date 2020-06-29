@@ -2,7 +2,6 @@ import FactoryProject from "../models/projectModel.js";
 import CustomError from '../errors/customError.js'
 import dao from '../data/daoFactory.js'
 
-
 /**
  * @description Obtener una entidad a traves de un string con su nombre
  * @param {'project','list,'task'}
@@ -18,46 +17,17 @@ const projectDAO = dao('project')
 async function getProjectById(req, res) {
   try {
     const id = req.body.id
-    const result = await projectDAO.getProjectById(id)
-    console.log('\n' + '-------------------Project Controller result:----------------------------' + '\n')
-    console.log(result)
-    console.log('\n' + '-------------------------------------------------------------------------' + '\n')
+    let project = await projectDAO.getProjectById(id)
 
-    let project = {
-      id_project: 'result.id_project',
-      id_admin: 'result.id_admin',
-      project_name: 'result.project_name'
-    }
-    
+    // console log
+    log(project);
+
     return res.json(project)
 
   } catch (error) {
     console.log('el error: ' + error);
-    
   }
-
 }
-
-
-
-
-// // const result = await projectModel.getProjectById(req.body.id) 
-// console.log(result)
-// res.json(result)
-
-/* try {      
-
-    // var result = new Project(id, admin, name)
-    const result = projectModel.getProjectById(req.body.id)   
-    res.status(200)
-    res.send(result)
-
-} catch (error) {
-    // throw new CustomError(500, 'error al obtener el proyecto', error)
-    console.log(error);
-    
-} */
-
 
 /**
  * @description Crear un proyecto
@@ -88,6 +58,14 @@ function getLists(res, req) {
   return "hola mudno"
 }
 
+
+    // console log
+    function log(data) {
+      console.log('\n' + '-------------------Project Controller result:----------------------------' + '\n');
+      console.log(data);
+      console.log('\n' + '-------------------------------------------------------------------------' + '\n');
+    }
+    
 export default {
   getProjectById,
   createProject,
@@ -96,3 +74,4 @@ export default {
   getProjectActionHistory,
   getLists,
 };
+
