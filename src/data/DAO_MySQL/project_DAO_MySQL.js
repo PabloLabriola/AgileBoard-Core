@@ -80,8 +80,6 @@ function my_log(data) {
   console.log('-------------------------------------------------------------------------')
 }
 
-createProject('thiIsAnAdminTest','testing_createProject')
-
 export default {
   getProjectById,
   createProject
