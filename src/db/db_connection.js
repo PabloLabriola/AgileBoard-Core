@@ -15,12 +15,17 @@ function createDB() {
     return knex
 }
 
-createDB().select().from('tasks').then(rows => {
-    console.log('DB connected');
-}).catch((err) => {
-    console.log(err);
-
-});
+(async () => {
+    await createDB()
+        .select()
+        .from('tasks')
+        .then(rows => {
+            console.log('DB connected');
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+})()
 
 
 export default {
