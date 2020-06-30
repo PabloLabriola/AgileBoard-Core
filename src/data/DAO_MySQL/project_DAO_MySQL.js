@@ -2,7 +2,6 @@ import knex from '../../db/db_connection.js'
 
 const db = knex.createDB()
 
-// import factoryProject from '../models/projectModel.js'
 
 /* ver métodos en el controller */
 
@@ -56,20 +55,18 @@ async function getProjectById(id) {
  * @description Crea un proyecto nuevo en la tabla 'projects'
  * @param {Recibe una clave de admin y un nombre de proyecto}
  * @returns {En caso de éxito devuelve el ID del proyecto creado}
- */async function createProject(admin, name) {
-
+ */
+async function createProject(admin, name) {
   try {
     let result = await db('projects')
       .insert
-      ({id_admin: admin , project_name: name})
+      ({ id_admin: admin, project_name: name })
     my_log('New project ID: ' + result)
     return result
   } catch (error) {
     return 'DB err: ' + error;
   }
 }
-
-
 
 
 // console log
