@@ -15,8 +15,8 @@ function createDB() {
     return knex
 }
 
-(async () => {
-    await createDB()
+(() => {
+    createDB()
         .select()
         .from('tasks')
         .then(rows => {

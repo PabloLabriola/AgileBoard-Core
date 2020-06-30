@@ -2,14 +2,13 @@ import knex from '../../db/db_connection.js'
 
 const db = knex.createDB()
 
-
-/* ver métodos en el controller */
+// ver métodos en el controller
 
 // getProjectById
 // createProject
 // getProjectStats
-// getProjectStatsById
-// getProjectActionHistory
+// getProjectStatsById -----> ?
+// getProjectActionHistory? -----> ?
 
 /**
  * @description Obtener un proyecto a través de su id
@@ -23,26 +22,28 @@ async function getProjectById(id) {
       .select()
       .from('projects')
       .where('id_project', id)
-      .then(row => {
-        if (row.length > 0) {
-          let data = row[0]
+      .then(arr => {
 
-          let project = {
-            id_project: data.id_project,
-            id_admin: data.id_admin,
-            project_name: data.project_name
+        if (arr.length > 0) {
+
+          const PROJECT = arr[0]
+
+          return {
+            id_project: PROJECT.id_project,
+            id_admin: PROJECT.id_admin,
+            project_name: PROJECT.project_name
           }
-          // console log
-          log(project)
 
-          return project
         } else {
-          return "Empty project"
+          return "Empty"
         }
       }).catch((err) => {
         console.log(err);
         return err
       })
+
+    // console log
+    my_log('Project: ' + result)
 
     return result
 
@@ -68,6 +69,26 @@ async function createProject(admin, name) {
   }
 }
 
+/**
+ * @description Devuelve la cantidad de proyectos en la BD
+ * @returns {Int}
+ */
+async function getProjectStats() {
+  try {
+    let result = await db('projects')
+      .count('* as count')
+      .then((arr) => {
+        if (arr.length > 0) {       // knex always returns an array of recs
+          return { "count": arr[0].count }
+        } else {
+          return " no projects "
+        }
+      })
+    my_log('There are: ' + result.count + ' projects in DB')
+  } catch (error) {
+    return 'DB err: ' + error;
+  }
+}
 
 // console log
 function my_log(data) {
@@ -77,9 +98,11 @@ function my_log(data) {
   console.log('-------------------------------------------------------------------------')
 }
 
+
 export default {
   getProjectById,
-  createProject
+  createProject,
+  getProjectStats
 }
 
 
