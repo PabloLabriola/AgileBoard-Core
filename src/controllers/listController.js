@@ -10,25 +10,33 @@ const listDAO = dao.List()
 
 // const list = new ListModel();
 
-function createList() {
-}
-function getListById() {
+/**
+ * @description Obtener una lista
+ * @param {Recibe los ids de una lista y de un proyecto}
+ * @returns {En caso de éxito, devuelve un objeto lista con sus properties}
+ */
+async function getListById(id_list, id_project) {
 }
 
-function editListName() {
+
+function createList(list_name) {
 }
-function deleteList() {
+
+
+function editListName(id_list, id_project, new_name) {
 }
-function getAllLists() {
+function deleteList(id_list, id_project) {
+}
+function getAllLists(id_project) {
 }
 
 
 export default {
-createList,
-getListById,
-editListName,
-deleteList,
-getAllLists
+    getListById,
+    createList,
+    editListName,
+    deleteList,
+    getAllLists
 }
 
 /**

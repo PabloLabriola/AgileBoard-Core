@@ -72,9 +72,8 @@ async function createTask(id_list, task_name, description) {
 }
 
 /**
- * @description Devuelve un array con todas las tareas de una lista
- * @param {Recibe un id de lista, unid de tarea, un nuevo nombre y una nueva descripcion}
- * @returns [tasks]
+ * @description funcion para cambiar el nombre de una tarea
+ * @param {Recibe un id de lista, un id de tarea y un nuevo nombre}
  */
 async function editTaskName(id_list, id_task, new_name) {
   try {
@@ -82,7 +81,7 @@ async function editTaskName(id_list, id_task, new_name) {
       .where('id_list', id_list)
       .andWhere('id_task', id_task)
       .update
-      (task_name, new_name, [id_task, id_list, task_name, description])
+      (task_name, new_name, ['id_task', 'id_list', 'task_name', 'description'])
 
     my_log('Task updated: ' + result)
     return result
@@ -92,9 +91,8 @@ async function editTaskName(id_list, id_task, new_name) {
 }
 
 /**
- * @description Devuelve un array con todas las tareas de una lista
- * @param {Recibe un id de lista, unid de tarea, un nuevo nombre y una nueva descripcion}
- * @returns [tasks]
+ * @description funcion para cambiar la descripcion de una tarea
+ * @param {Recibe un id de lista, un id de tarea y una nueva descripcion}
  */
 async function editTaskDescription(id_list, id_task, new_desc) {
   try {
@@ -102,7 +100,7 @@ async function editTaskDescription(id_list, id_task, new_desc) {
       .where('id_list', id_list)
       .andWhere('id_task', id_task)
       .update
-      (description, new_desc, [id_task, id_list, task_name, description])
+      (description, new_desc, ['id_task', 'id_list', 'task_name', 'description'])
 
     my_log('Task updated: ' + result)
     return result
@@ -116,13 +114,14 @@ async function editTaskDescription(id_list, id_task, new_desc) {
  * @param {Recibe un id de lista}
  * @returns [tasks]
  */
-async function deleteTask(id_list, id_task) {
+async function deleteTask(id_task, id_list) {
   try {
     let result = await db('tasks')
-      .where('id_list', id_list)
-      .andWhere('id_task', id_task)
+      .where('id_task', id_task)
+      .andWhere('id_list', id_list)
       .del()
-    my_log('rows affected: ' + result)
+
+    my_log('Rows affected: ' + result)
     return result
   } catch (error) {
     return 'DB err: ' + error;
@@ -161,14 +160,6 @@ function my_log(data) {
   console.log('\n' + '-------------------------------------------------------------------------' + '\n')
   console.log('-------------------------------------------------------------------------')
 }
-
-// createTask(1, 'lalalal', 'nmnmnmnmnmnmnmnm')
-// getTaskById(1,1)
-// editTaskName()
-// editTaskDescription()
-// deleteTask()
-// getAllTasks(1)
-
 
 export default {
   getTaskById,
