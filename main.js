@@ -7,6 +7,8 @@ import config from './config.js'
 const app = express()
 const port = config.SERVER_PORT || 3000;
 
+
+
 app.use(express.json())
 app.use("/", router);
 

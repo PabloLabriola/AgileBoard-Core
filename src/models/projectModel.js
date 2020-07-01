@@ -1,11 +1,12 @@
 
   class Project {
 
-    constructor(id, admin, name) {
+    constructor(id, admin, name, lists) {
 
       let _id = id
       let _admin = admin
       let _name = name
+      let _lists = lists
       
 
       this.getId = () => _id
@@ -16,6 +17,9 @@
 
       this.getName = () => _name
       this.setName = name => _name = name
+
+      this.getLists = () => _lists
+      this.setLists = lists => _lists = lists
     }
   }
 
