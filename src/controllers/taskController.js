@@ -1,11 +1,11 @@
 import Task from '../models/taskModel.js'
-import dao from '../data/daoFactory.js'
+import dao from '../data/daoDB.js'
 
 /**
  * @description Obtener una entidad a traves de un string con su nombre
  * @param {'project','list,'task'}
  */
-const taskDAO = dao('task')
+const taskDAO = dao.Task()
 
 async function getTaskById(req, res) {
   try {
@@ -46,7 +46,7 @@ async function getAllTasks(req, res) {
 
     console.log(id_list);
     
-    let task = await taskDAO.getTaskById(id_list)
+    let task = await taskDAO.getAllTasks(id_list)
 
     // console log
     log(task);

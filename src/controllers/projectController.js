@@ -1,12 +1,12 @@
 import FactoryProject from "../models/projectModel.js";
 import CustomError from '../errors/customError.js'
-import dao from '../data/daoFactory.js'
+import dao from '../data/daoDB.js'
 
 /**
  * @description Obtener una entidad a traves de un string con su nombre
  * @param {'project','list,'task'}
  */
-const projectDAO = dao('project')
+const projectDAO = dao.Project()
 
 /**
  * @description Obtener un proyecto a través de su id

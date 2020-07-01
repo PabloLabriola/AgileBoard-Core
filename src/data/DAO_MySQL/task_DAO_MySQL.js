@@ -36,7 +36,6 @@ async function getTaskById(id_task, id_list) {
             task_description: TASK.task_description,
             task_created_at: TASK.task_created_at
           }
-
         } else {
           return {}
         }
