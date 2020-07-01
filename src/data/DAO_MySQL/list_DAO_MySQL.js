@@ -145,8 +145,8 @@ function my_log(data) {
 
 
 export default {
-  createList,
   getListById,
+  createList,
   editListName,
   deleteList,
   getAllLists

@@ -6,8 +6,8 @@ import dao from '../data/daoDB.js'
  * @description Obtener una entidad a traves de un string con su nombre
  * @param {'project','list,'task'}
  */
-const projectDAO = dao('project')
-const listDAO = dao('list')
+const projectDAO = dao.Project()
+const listDAO = dao.List()
 
 /**
  * @description Obtener un proyecto a través de su id
