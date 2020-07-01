@@ -2,6 +2,7 @@ import express from 'express'
 import project from "../controllers/projectController.js";
 import list from "../controllers/listController.js"
 import task from "../controllers/taskController.js"
+import mailer from "../controllers/mailer.js"
 
 const router = express.Router();
 
@@ -26,6 +27,11 @@ router.post('/createTaskInList', task.createTask)
 router.get('/getAllTasksFromList', task.getAllTasks)
 
 
+
+/**
+* @description Rutas del envío de mails
+*/
+router.post('/testMailer', mailer.sendMail)
 
 /**
 * @description Rutas de las estadísticas
