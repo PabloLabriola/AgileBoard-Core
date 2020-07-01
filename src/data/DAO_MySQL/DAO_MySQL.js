@@ -17,3 +17,7 @@ function DAO_MySQL(param) {
 export default {
     DAO_MySQL
 }
+
+/**
+* @author Pablo Labriola
+*/

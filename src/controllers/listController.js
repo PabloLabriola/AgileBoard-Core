@@ -1,4 +1,4 @@
-import ListModel from "../models/listModel.js";
+// import ListModel from "../models/listModel.js";
 import dao from '../data/daoFactory.js'
 
 /**
@@ -8,22 +8,29 @@ import dao from '../data/daoFactory.js'
 const listDAO = dao('list')
 
 
-const list = new ListModel();
+// const list = new ListModel();
 
-async function getTaskFromList(id_list) {
-  return "hola mundo";
+function createList() {
+}
+function getListById() {
 }
 
-async function editTaskFromList(id_list, id_task) {
-  return "hola mundo";
+function editListName() {
+}
+function deleteList() {
+}
+function getAllLists() {
 }
 
-async function deleteTraskFromList(id_list, id_task){
-    return "hola mundo";
-}
 
 export default {
-  getTaskFromList,
-  editTaskFromList,
-  deleteTraskFromList,
-};
+createList,
+getListById,
+editListName,
+deleteList,
+getAllLists
+}
+
+/**
+* @author Pablo Labriola
+*/

@@ -1,6 +1,6 @@
   async function getList(id) {
 
-    return await id
+    // return await id
     // try {
     //   await knex
     //     .select()
@@ -17,7 +17,30 @@
     //   return error;
     // }
   }
+  function createList(){
+
+  }
+  function getListById(){
+
+  }
+  function editListName(){
+
+  }
+  function deleteList(){
+
+  }
+  function getAllLists(){
+    
+  }
 
   export default {
-    getList
-  }
+    createList,
+    getListById,
+    editListName,
+    deleteList,
+    getAllLists
+    }
+
+  /**
+* @author Pablo Labriola
+*/

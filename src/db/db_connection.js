@@ -31,3 +31,7 @@ function createDB() {
 export default {
     createDB
 }
+
+/**
+* @author Pablo Labriola
+*/

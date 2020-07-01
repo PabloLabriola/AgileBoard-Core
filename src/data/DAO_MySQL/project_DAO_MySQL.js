@@ -14,7 +14,7 @@ const db = knex.createDB()
  * @description Obtener un proyecto a través de su id
  * @param {Recibe el id de un proyecto existente}
  * @validate Valida que el id del proyecto corresponda a uno existente
- * @returns {En caso de éxito devuelve un objeto proyecto con sus properties}
+ * @returns {En caso de éxito, devuelve un objeto proyecto con sus properties}
  */
 async function getProjectById(id) {
   try {
@@ -29,13 +29,13 @@ async function getProjectById(id) {
           const PROJECT = arr[0]
 
           return {
-            id_project: PROJECT.id_project,
-            id_admin: PROJECT.id_admin,
-            project_name: PROJECT.project_name
+            'id_project': PROJECT.id_project,
+            'id_admin': PROJECT.id_admin,
+            'project_name': PROJECT.project_name
           }
-
         } else {
-          return "Empty"
+          return {
+          }
         }
       }).catch((err) => {
         console.log(err);
@@ -43,7 +43,7 @@ async function getProjectById(id) {
       })
 
     // console log
-    my_log('Project: ' + result)
+    my_log('Project: ' + JSON.stringify(result))
 
     return result
 
@@ -81,10 +81,11 @@ async function getProjectStats() {
         if (arr.length > 0) {       // knex always returns an array of recs
           return { "count": arr[0].count }
         } else {
-          return " no projects "
+          return {}
         }
       })
-    my_log('There are: ' + result.count + ' projects in DB')
+      my_log('There are: ' + result.count + ' projects in DB')
+      return result
   } catch (error) {
     return 'DB err: ' + error;
   }
@@ -98,12 +99,15 @@ function my_log(data) {
   console.log('-------------------------------------------------------------------------')
 }
 
-
 export default {
   getProjectById,
   createProject,
   getProjectStats
 }
+
+/**
+* @author Pablo Labriola
+*/
 
 
 

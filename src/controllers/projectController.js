@@ -36,27 +36,45 @@ async function getProjectById(req, res) {
  * @validate Valida que el nombre del proyecto no exista previamente
  * @returns {En caso de éxito devuelve un objeto proyecto con su nombre y descripción}
  */
-async function createProject(name, description) {
-  return "Hola mundo";
+async function createProject(req, res) {
+  try {
+    let admin = req.body.id_admin 
+    let name = req.body.project_name
+
+    let project_id = await projectDAO.createProject(admin, name)
+
+    // console log
+    log(project_id);
+
+    let project = getProjectById(project_id)
+
+    return res.json(project.body)
+
+  } catch (error) {
+    console.log('Project controller getStats error: ' + error);
+  }
 }
 
-async function getProjectStats(id) {
-  return "Hola mundo";
+async function getProjectStats(req, res) {
+  try {
+    let stats = await projectDAO.getProjectStats()
+
+    // console log
+    log(stats);
+
+    return res.json(stats)
+
+  } catch (error) {
+    console.log('Project controller getStats error: ' + error);
+  }
 }
 
-async function getProjectStatsById(id) {
-  return "Hola mundo";
-}
 
-async function getProjectActionHistory(id) {
-  return "Hola mundo";
-}
-
-function getLists(res, req) {
-  // const lists = await projectModel.getList(req.body.idProject);
-  // return JSON.stringify(lists);
-  return "hola mudno"
-}
+// function getLists(res, req) {
+//   // const lists = await projectModel.getList(req.body.idProject);
+//   // return JSON.stringify(lists);
+//   return "hola mudno"
+// }
 
 
     // console log
@@ -70,8 +88,11 @@ export default {
   getProjectById,
   createProject,
   getProjectStats,
-  getProjectStatsById,
-  getProjectActionHistory,
-  getLists,
 };
+
+/**
+* @author Pablo Labriola
+*/
+
+
 
