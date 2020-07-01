@@ -6,7 +6,8 @@ import dao from '../data/daoDB.js'
  * @description Obtener una entidad a traves de un string con su nombre
  * @param {'project','list,'task'}
  */
-const projectDAO = dao.Project()
+const projectDAO = dao('project')
+const listDAO = dao('list')
 
 /**
  * @description Obtener un proyecto a través de su id
@@ -18,11 +19,17 @@ async function getProjectById(req, res) {
   try {
     const id = req.body.id
     let project = await projectDAO.getProjectById(id)
+    
+    //obtengo las listas del proyecto
+    let lists = await listDAO.getAllListsByIdProyect(id)    
+    project.setLists(lists)
+    let newProject = new FactoryProject(project.id, project.admin, project.name, lists)   
 
     // console log
     log(project);
 
-    return res.json(project)
+    //return res.json(project)
+    return res.json(newProject)
 
   } catch (error) {
     console.log('el error: ' + error);
@@ -48,7 +55,7 @@ async function createProject(req, res) {
 
     let project = getProjectById(project_id)
 
-    return res.json(project.body)
+    return res.json(project)
 
   } catch (error) {
     console.log('Project controller getStats error: ' + error);
@@ -91,7 +98,7 @@ export default {
 };
 
 /**
-* @author Pablo Labriola
+* @author Pablo Rondeau
 */
 
 

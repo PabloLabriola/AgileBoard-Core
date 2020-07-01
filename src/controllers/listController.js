@@ -30,7 +30,6 @@ function deleteList(id_list, id_project) {
 function getAllLists(id_project) {
 }
 
-
 export default {
     getListById,
     createList,
@@ -40,5 +39,5 @@ export default {
 }
 
 /**
-* @author Pablo Labriola
+* @author Pablo Rondeau
 */

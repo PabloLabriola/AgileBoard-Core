@@ -26,7 +26,7 @@ async function getTaskById(req, res) {
   }
 }
 
-async function createTask(id_list, id_task) {
+async function createTask(id_list, name, description) {
   return "hola mundo";
 }
 
@@ -75,5 +75,5 @@ export default {
 }
 
 /**
-* @author Pablo Labriola
+* @author Pablo Rondeau
 */

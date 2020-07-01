@@ -9,13 +9,14 @@ const router = express.Router();
 /**
 * @description Rutas del proyecto
 */
-router.get('/getProject', project.getProjectById)
-router.get('/getLists', list.getListById)
 router.post('/createProject', project.createProject)
+router.get('/getProject', project.getProjectById)
+router.get('/getProjectStats', project.getProjectStats)
 
 /**
 * @description Rutas de las listas
 */
+router.get('/getLists', list.getListById)
 router.get('/getTask', task.getTaskById)
 router.delete('/deleteTaskFromList', task.deleteTask)
 
@@ -25,7 +26,6 @@ router.delete('/deleteTaskFromList', task.deleteTask)
 router.post('/editTaskFromList', task.editTask)
 router.post('/createTaskInList', task.createTask)
 router.get('/getAllTasksFromList', task.getAllTasks)
-
 
 
 /**
