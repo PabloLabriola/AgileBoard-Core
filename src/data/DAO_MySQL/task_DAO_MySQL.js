@@ -81,8 +81,7 @@ async function editTaskName(id_list, id_task, new_name) {
       .where('id_list', id_list)
       .andWhere('id_task', id_task)
       .update
-      (task_name, new_name, ['id_task', 'id_list', 'task_name', 'task_description'])
-
+      ({task_name: new_name})
     my_log('Task updated: ' + result)
     return result
   } catch (error) {
@@ -100,7 +99,7 @@ async function editTaskDescription(id_list, id_task, new_desc) {
       .where('id_list', id_list)
       .andWhere('id_task', id_task)
       .update
-      (task_description, new_desc, ['id_task', 'id_list', 'task_name', 'task_description'])
+      ({task_description:new_desc})
 
     my_log('Task updated: ' + result)
     return result

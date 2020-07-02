@@ -46,16 +46,17 @@ async function editTask(req, res) {
   try {
     const id_task = req.body.id_task
     const id_list = req.body.id_list
-    const name_task = req.body.name_task
+
+    const new_name = req.body.new_name
     const description_task = req.body.description_task    
     
-    await taskDAO.editTaskName(id_list, id_task, name_task)
+    await taskDAO.editTaskName(id_list, id_task, new_name)
     await taskDAO.editTaskDescription(id_list, id_task, description_task)
 
     // console log
-    log(id_task);
-
     let task = await taskDAO.getTaskById(id_task, id_list)
+    
+    log(task);
 
     return res.json(task)
 
@@ -83,9 +84,7 @@ async function deleteTask(req, res) {
 
 async function getAllTasks(req, res) {
   try {
-    const id_list = req.body.id_list
-
-    console.log(id_list);
+    const id_list = req.body.id_list    
     
     let task = await taskDAO.getAllTasks(id_list)
 
@@ -102,7 +101,7 @@ async function getAllTasks(req, res) {
 
 // console log
 function log(data) {
-  console.log('\n' + '-------------------Project Controller result:----------------------------' + '\n');
+  console.log('\n' + '-------------------Task Controller result:----------------------------' + '\n');
   console.log(data);
   console.log('\n' + '-------------------------------------------------------------------------' + '\n');
 }

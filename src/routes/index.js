@@ -9,9 +9,9 @@ const router = express.Router();
 /**
 * @description Rutas del proyecto
 */
-router.post('/createProject', project.createProject)
 router.get('/getProject', project.getProjectById)
 router.get('/getProjectStats', project.getProjectStats)
+router.post('/createProject', project.createProject)
 
 /**
 * @description Rutas de las listas

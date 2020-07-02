@@ -35,7 +35,7 @@ async function createList(req, res) {
         // console log
         log(id_list);
     
-        let list = await listDAO.getListById(id_list)
+        let list = await listDAO.getListById(id_list,id_project)
     
         return res.json(list)
     
@@ -51,9 +51,10 @@ async function editListName(req, res) {
         const id_project = req.body.id_project    
         const list_name = req.body.list_name
         
-        let list = await listDAO.editListName(id_list, id_project, list_name)     
+        await listDAO.editListName(id_list, id_project, list_name)     
     
         // console log
+        let list = await listDAO.getListById(id_list,id_project)
         log(list);
     
         return res.json(list)
@@ -66,9 +67,9 @@ async function editListName(req, res) {
 async function deleteList(req, res){
     try {        
         const id_list = req.body.id_list    
-        const id_project = req.body.id_task
+        const id_project = req.body.id_project
         
-        id_list = await listDAO.deleteList(id_list, id_project)
+        await listDAO.deleteList(id_list, id_project)
     
         // console log
         log(id_list);   
@@ -95,6 +96,13 @@ async function getAllLists(req, res){
         console.log('el error: ' + error);
       }
     
+}
+
+// console log
+function log(data) {
+  console.log('\n' + '-------------------List Controller result:----------------------------' + '\n');
+  console.log(data);
+  console.log('\n' + '-------------------------------------------------------------------------' + '\n');
 }
 
 export default {
