@@ -1,33 +1,100 @@
-// import ListModel from "../models/listModel.js";
 import dao from '../data/daoDB.js'
 
-/**
- * @description Obtener una entidad a traves de un string con su nombre
- * @param {'project','list,'task'}
- */
 const listDAO = dao.List()
-
-
-// const list = new ListModel();
 
 /**
  * @description Obtener una lista
  * @param {Recibe los ids de una lista y de un proyecto}
  * @returns {En caso de éxito, devuelve un objeto lista con sus properties}
  */
-async function getListById(id_list, id_project) {
+async function getListById(req, res)  {
+    try {        
+        const id_list = req.body.id_list
+        const id_project = req.body.id_project
+        
+        let list = await listDAO.getListById(id_list, id_project)
+    
+        // console log
+        log(list);
+    
+        return res.json(list)
+    
+      } catch (error) {
+        console.log('el error: ' + error);
+      }
+
 }
 
+async function createList(req, res) {
+    try {
+        const id_project = req.body.id_project
+        const list_name = req.body.list_name        
+        
+        let id_list = await listDAO.createList(id_project, list_name)
+    
+        // console log
+        log(id_list);
+    
+        let list = await listDAO.getListById(id_list)
+    
+        return res.json(list)
+    
+      } catch (error) {
+        console.log('el error: ' + error);
+      }
 
-function createList(list_name) {
 }
 
+async function editListName(req, res) {
+    try {
+        const id_list = req.body.id_list        
+        const id_project = req.body.id_project    
+        const list_name = req.body.list_name
+        
+        let list = await listDAO.editListName(id_list, id_project, list_name)     
+    
+        // console log
+        log(list);
+    
+        return res.json(list)
+    
+      } catch (error) {
+        console.log('el error: ' + error);
+      }
+}
 
-function editListName(id_list, id_project, new_name) {
+async function deleteList(req, res){
+    try {        
+        const id_list = req.body.id_list    
+        const id_project = req.body.id_task
+        
+        id_list = await listDAO.deleteList(id_list, id_project)
+    
+        // console log
+        log(id_list);   
+    
+        return res.json(id_list)
+    
+      } catch (error) {
+        console.log('el error: ' + error);
+      }
 }
-function deleteList(id_list, id_project) {
-}
-function getAllLists(id_project) {
+
+async function getAllLists(req, res){
+    try {                
+        const id_project = req.body.id_project
+        
+        let list = await listDAO.getAllLists(id_project)
+    
+        // console log
+        log(list);
+    
+        return res.json(list)
+    
+      } catch (error) {
+        console.log('el error: ' + error);
+      }
+    
 }
 
 export default {
@@ -35,8 +102,7 @@ export default {
     createList,
     editListName,
     deleteList,
-    getAllLists
-}
+    getAllLists}
 
 /**
 * @author Pablo Rondeau

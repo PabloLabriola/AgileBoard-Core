@@ -1,14 +1,8 @@
 import FactoryProject from "../models/projectModel.js";
-import CustomError from '../errors/customError.js'
 import dao from '../data/daoDB.js'
 
-/**
- * @description Obtener una entidad a traves de un string con su nombre
- * @param {'project','list,'task'}
- */
-const projectDAO = dao('project')
-const listDAO = dao('list')
-
+const projectDAO = dao.Project()
+const listDAO = dao.List()
 /**
  * @description Obtener un proyecto a través de su id
  * @param {Recibe el id de un proyecto existente}
@@ -21,15 +15,15 @@ async function getProjectById(req, res) {
     let project = await projectDAO.getProjectById(id)
     
     //obtengo las listas del proyecto
-    let lists = await listDAO.getAllListsByIdProyect(id)    
+    let lists = await listDAO.getAllLists(id)    
     project.setLists(lists)
     let newProject = new FactoryProject(project.id, project.admin, project.name, lists)   
 
     // console log
     log(project);
 
-    //return res.json(project)
-    return res.json(newProject)
+    return res.json(project)
+    //return res.json(newProject)
 
   } catch (error) {
     console.log('el error: ' + error);
@@ -45,15 +39,15 @@ async function getProjectById(req, res) {
  */
 async function createProject(req, res) {
   try {
-    let admin = req.body.id_admin 
-    let name = req.body.project_name
-
+    const admin = req.body.id_admin 
+    const name = req.body.project_name
+    log(admin + ' ' +name );
     let project_id = await projectDAO.createProject(admin, name)
 
     // console log
     log(project_id);
 
-    let project = getProjectById(project_id)
+    let project = await projectDAO.getProjectById(project_id)
 
     return res.json(project)
 
@@ -75,14 +69,6 @@ async function getProjectStats(req, res) {
     console.log('Project controller getStats error: ' + error);
   }
 }
-
-
-// function getLists(res, req) {
-//   // const lists = await projectModel.getList(req.body.idProject);
-//   // return JSON.stringify(lists);
-//   return "hola mudno"
-// }
-
 
     // console log
     function log(data) {

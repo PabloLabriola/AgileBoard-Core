@@ -16,17 +16,19 @@ router.get('/getProjectStats', project.getProjectStats)
 /**
 * @description Rutas de las listas
 */
-router.get('/getLists', list.getListById)
-router.get('/getTask', task.getTaskById)
-router.delete('/deleteTaskFromList', task.deleteTask)
-
+router.get('/getList', list.getListById)
+router.get('/getAllListsFromProject', list.getAllLists)
+router.post('/createListInProject', list.createList)
+router.post('/editListName', list.editListName)
+router.delete('/deleteList', list.deleteList)
 /**
 * @description Rutas de las tareas
 */
+router.get('/getTask', task.getTaskById)
+router.get('/getAllTasksFromList', task.getAllTasks)
 router.post('/editTaskFromList', task.editTask)
 router.post('/createTaskInList', task.createTask)
-router.get('/getAllTasksFromList', task.getAllTasks)
-
+router.delete('/deleteTaskFromList', task.deleteTask)
 
 /**
 * @description Rutas del envío de mails
