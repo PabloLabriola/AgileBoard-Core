@@ -59,11 +59,11 @@ async function getTaskById(id_task, id_list) {
  * @param {Recibe una lista, un nombre y una descripcion}
  * @returns {En caso de éxito devuelve el ID de la tarea creada}
  */
-async function createTask(id_list, task_name, description) {
+async function createTask(id_list, task_name, task_description, timestamp) {
   try {
     let result = await db('tasks')
       .insert
-      ({ id_list: id_list, task_name: task_name, description: description })
+      ({ id_list: id_list, task_name: task_name, task_description: task_description, task_created_at: timestamp })
     my_log('New task ID: ' + result)
     return result
   } catch (error) {
@@ -81,7 +81,7 @@ async function editTaskName(id_list, id_task, new_name) {
       .where('id_list', id_list)
       .andWhere('id_task', id_task)
       .update
-      (task_name, new_name, ['id_task', 'id_list', 'task_name', 'description'])
+      (task_name, new_name, ['id_task', 'id_list', 'task_name', 'task_description'])
 
     my_log('Task updated: ' + result)
     return result
@@ -100,7 +100,7 @@ async function editTaskDescription(id_list, id_task, new_desc) {
       .where('id_list', id_list)
       .andWhere('id_task', id_task)
       .update
-      (description, new_desc, ['id_task', 'id_list', 'task_name', 'description'])
+      (task_description, new_desc, ['id_task', 'id_list', 'task_name', 'task_description'])
 
     my_log('Task updated: ' + result)
     return result
@@ -160,6 +160,7 @@ function my_log(data) {
   console.log('\n' + '-------------------------------------------------------------------------' + '\n')
   console.log('-------------------------------------------------------------------------')
 }
+
 
 export default {
   getTaskById,
